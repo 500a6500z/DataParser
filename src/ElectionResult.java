@@ -1,16 +1,16 @@
 public class ElectionResult {
-    private int votesDem;
-    private int votesGop;
-    private int totalVotes;
+    private double votesDem;
+    private double votesGop;
+    private double totalVotes;
     private double perDem;
     private double perGop;
-    private int diff;
+    private String diff;
     private double per_point_diff;
     private String stateAbbr;
     private String countyName;
     private int combinedFips;
 
-    public ElectionResult(int votesDem, int votesGop, int totalVotes, double perDem, double perGop, int diff, double per_point_diff, String stateAbbr, String countyName, int combinedFips) {
+    public ElectionResult(double votesDem, double votesGop, double totalVotes, double perDem, double perGop, String diff, double per_point_diff, String stateAbbr, String countyName, int combinedFips) {
         this.votesDem = votesDem;
         this.votesGop = votesGop;
         this.totalVotes = totalVotes;
@@ -23,27 +23,27 @@ public class ElectionResult {
         this.combinedFips = combinedFips;
     }
 
-    public int getVotesDem() {
+    public double getVotesDem() {
         return votesDem;
     }
 
-    public void setVotesDem(int votesDem) {
+    public void setVotesDem(double votesDem) {
         this.votesDem = votesDem;
     }
 
-    public int getVotesGop() {
+    public double getVotesGop() {
         return votesGop;
     }
 
-    public void setVotesGop(int votesGop) {
+    public void setVotesGop(double votesGop) {
         this.votesGop = votesGop;
     }
 
-    public int getTotalVotes() {
+    public double getTotalVotes() {
         return totalVotes;
     }
 
-    public void setTotalVotes(int totalVotes) {
+    public void setTotalVotes(double totalVotes) {
         this.totalVotes = totalVotes;
     }
 
@@ -63,11 +63,11 @@ public class ElectionResult {
         this.perGop = perGop;
     }
 
-    public int getDiff() {
+    public String getDiff() {
         return diff;
     }
 
-    public void setDiff(int diff) {
+    public void setDiff(String diff) {
         this.diff = diff;
     }
 
