@@ -25,9 +25,6 @@ public class Utils {
         String[] lines = data.split("\n");
         ArrayList<ElectionResult> output = new ArrayList<>(lines.length);
         for(int i = 1; i < lines.length; i++) {
-            /*
-            funny code xd
-             */
             int splitIndex = lines[i].indexOf(',', lines[i].indexOf(',', lines[i].indexOf(',', lines[i].indexOf(',', lines[i].indexOf(',', lines[i].indexOf(',') + 1) + 1) + 1) + 1) + 1);
             String result1 = lines[i].substring(0, splitIndex);
             String result2 = lines[i].substring(splitIndex + 1);
