@@ -25,9 +25,37 @@ public class Utils {
         String[] lines = data.split("\n");
         ArrayList<ElectionResult> output = new ArrayList<>(lines.length);
         for(int i = 1; i < lines.length; i++) {
-            String[] resultData = lines[i].split(",");
-            System.out.println(i);
-            output.add(new ElectionResult(Double.parseDouble(resultData[1]), Double.parseDouble(resultData[2]), Double.parseDouble(resultData[3]), Double.parseDouble(resultData[4]), Double.parseDouble(resultData[5]), resultData[6] + resultData[7], Double.parseDouble(resultData[8].substring(0, resultData[7].length() - 1)), resultData[9], resultData[10], Integer.parseInt(resultData[11])));
+            /*
+            funny code xd
+             */
+            int splitIndex = lines[i].indexOf(',', lines[i].indexOf(',', lines[i].indexOf(',', lines[i].indexOf(',', lines[i].indexOf(',', lines[i].indexOf(',') + 1) + 1) + 1) + 1) + 1);
+            String result1 = lines[i].substring(0, splitIndex);
+            String result2 = lines[i].substring(splitIndex + 1);
+            String[] data1 = result1.split(",");
+            int extra = 0;
+            for (int j = 0; j < result2.length(); j++) {
+                if (result2.charAt(j) == ',') {
+                    extra++;
+                }
+            }
+            extra -= 4;
+            for (int j = 0; j < extra; j++) {
+                result2 = result2.substring(0, result2.indexOf(',')) + result2.substring(result2.indexOf(',') + 1);
+            }
+            extra = 0;
+            for (int j = 0; j < result2.length(); j++) {
+                if (result2.charAt(j) == '"') {
+                    extra++;
+                }
+            }
+            for (int j = 0; j < extra; j++) {
+                result2 = result2.substring(0, result2.indexOf('"')) + result2.substring(result2.indexOf('"') + 1);
+            }
+            if (result2.indexOf('%') != -1) {
+                result2 = result2.substring(0, result2.indexOf('%')) + result2.substring(result2.indexOf('%') + 1);
+            }
+            String[] data2 = result2.split(",");
+            output.add(new ElectionResult(Double.parseDouble(data1[1]), Double.parseDouble(data1[2]), Double.parseDouble(data1[3]), Double.parseDouble(data1[4]), Double.parseDouble(data1[5]), data2[0], Double.parseDouble(data2[1]), data2[2], data2[3], Integer.parseInt(data2[4])));
         }
         return output;
     }
