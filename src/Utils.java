@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Utils {
@@ -54,6 +55,15 @@ public class Utils {
             String[] data2 = result2.split(",");
             output.add(new ElectionResult(Double.parseDouble(data1[1]), Double.parseDouble(data1[2]), Double.parseDouble(data1[3]), Double.parseDouble(data1[4]), Double.parseDouble(data1[5]), data2[0], Double.parseDouble(data2[1]), data2[2], data2[3], Integer.parseInt(data2[4])));
         }
+        return output;
+    }
+
+    public static DataManager parseMoreParse(ArrayList<ElectionResult> list) {
+        DataManager output = new DataManager(new ArrayList<>(50));
+        for(ElectionResult e : list) {
+
+        }
+
         return output;
     }
 }
