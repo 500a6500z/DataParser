@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Utils {
@@ -112,6 +113,9 @@ public class Utils {
         }
         for(int i = startIndex; i < lines.length; i++) {
             String[] data = lines[i].split(",");
+
+            if(data.length <= 46) continue;
+
             double noHighSchool = Double.parseDouble(data[43]);
             double onlyHighSchool = Double.parseDouble(data[44]);
             double someCollege = Double.parseDouble(data[45]);
@@ -148,6 +152,9 @@ public class Utils {
         }
         for(int i = startIndex; i < lines.length; i++) {
             String[] data = lines[i].split(",");
+
+            if(data.length <= 45) continue;
+            
             int totalLaborForce = Integer.parseInt(data[42]);
             int employedLaborForce = Integer.parseInt(data[43]);
             int unemployedLaborForce = Integer.parseInt(data[44]);
@@ -180,7 +187,7 @@ public class Utils {
     private static String clean(String str) {
         ArrayList<Integer> list = new ArrayList<>();
         boolean inQuote = false;
-        for(int i = str.length() - 1; i >= 0; i++) {
+        for(int i = str.length() - 1; i >= 0; i--) {
             if(!inQuote && str.charAt(i) == '"') {
                 inQuote = true;
                 list.add(i);
@@ -192,7 +199,7 @@ public class Utils {
             else if(inQuote && str.charAt(i) == ',') {
                 list.add(i);
             }
-            else if(str.charAt(i) == ' ' || str.charAt(i) == '%' || str.charAt(i) == '$') {
+            else if(str.charAt(i) == ' ' || str.charAt(i) == '\t' || str.charAt(i) == '%' || str.charAt(i) == '$') {
                 list.add(i);
             }
         }

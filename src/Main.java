@@ -8,6 +8,6 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
         String data = Utils.readFileAsString("data/2016_Presidential_Results.csv");
-        ArrayList<ElectionResult> list = Utils.parse2016PresidentalResults(data);
+        DataManager d = Utils.parseFiles("data/2016_Presidential_Results.csv", "data/Education.csv", "data/Unemployment.csv");
     }
 }
