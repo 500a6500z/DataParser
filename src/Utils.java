@@ -72,7 +72,6 @@ public class Utils {
         parseEducation(output, education);
         parseUnemployment(output, unemployment);
 
-
         return output;
     }
 
@@ -84,10 +83,30 @@ public class Utils {
 
         for(int i = 0; i < lines.length; i++) {
             String[] data = lines[i].split(",");
-            int stateIndex = getStateIndex(data[8], d.getStates());
-            if(stateIndex != -1) {
-                int countyIndex = getCountyIndex(data[9], d.getStates().get(stateIndex).getCounties());
+            double demVotes = Double.parseDouble(data[1]);
+            double gopVotes = Double.parseDouble(data[2]);
+            double totalVotes = Double.parseDouble(data[3]);
+            int fips = Integer.parseInt(data[10]);
+            String state = data[8];
+            String county = data[9];
+            int stateIndex = getStateIndex(state, d.getStates());
+            if(stateIndex == -1) {
+                d.getStates().add(new State(state, new ArrayList<>()));
+                stateIndex = d.getStates().size() - 1;
             }
+
+                int countyIndex = getCountyIndex(county, d.getStates().get(stateIndex).getCounties());
+                if(countyIndex == -1) {
+                    d.getStates().get(stateIndex).getCounties().add(new County(county, fips, new Election2016(-1, -1, -1),
+                            new Education2016(-1, -1, -1, -1),
+                            new Employment2016(-1, -1, -1, -1)));
+                    countyIndex = d.getStates().get(stateIndex).getCounties().size() - 1;
+                }
+
+                d.getStates().get(stateIndex).getCounties().get(countyIndex).getVote2016().setDemVotes(demVotes);
+                d.getStates().get(stateIndex).getCounties().get(countyIndex).getVote2016().setGopVotes(gopVotes);
+                d.getStates().get(stateIndex).getCounties().get(countyIndex).getVote2016().setTotalVotes(totalVotes);
+
         }
     }
 
