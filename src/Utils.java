@@ -57,11 +57,6 @@ public class Utils {
         return output;
     }
 
-    //TODO:
-    /*
-        finish 3 parse methods, use clean method, and create objects
-     */
-
     public static DataManager parseFiles(String electionResultsFile, String educationFile, String unemploymentFile) {
         DataManager output = new DataManager(new ArrayList<>(51));
         String election = readFileAsString(electionResultsFile);
@@ -77,11 +72,12 @@ public class Utils {
 
     private static void parseElection(DataManager d, String election) {
         String[] lines = election.split("\n");
-        for(int i = 0; i < lines.length; i++) {
+        int startIndex = 1;
+        for(int i = startIndex; i < lines.length; i++) {
             lines[i] = clean(lines[i]);
         }
 
-        for(int i = 0; i < lines.length; i++) {
+        for(int i = startIndex; i < lines.length; i++) {
             String[] data = lines[i].split(",");
             double demVotes = Double.parseDouble(data[1]);
             double gopVotes = Double.parseDouble(data[2]);
@@ -112,10 +108,11 @@ public class Utils {
 
     private static void parseEducation(DataManager d, String education) {
         String[] lines = education.split("\n");
-        for(int i = 0; i < lines.length; i++) {
+        int startIndex = 5;
+        for(int i = startIndex; i < lines.length; i++) {
             lines[i] = clean(lines[i]);
         }
-        for(int i = 0; i < lines.length; i++) {
+        for(int i = startIndex; i < lines.length; i++) {
             String[] data = lines[i].split(",");
             double noHighSchool = Double.parseDouble(data[43]);
             double onlyHighSchool = Double.parseDouble(data[44]);
@@ -147,10 +144,39 @@ public class Utils {
 
     private static void parseUnemployment(DataManager d, String unemployment) {
         String[] lines = unemployment.split("\n");
-        for(int i = 0; i < lines.length; i++) {
+        int startIndex = 8;
+        for(int i = startIndex; i < lines.length; i++) {
             lines[i] = clean(lines[i]);
         }
+        for(int i = startIndex; i < lines.length; i++) {
+            String[] data = lines[i].split(",");
+            int totalLaborForce = Integer.parseInt(data[42]);
+            int employedLaborForce = Integer.parseInt(data[43]);
+            int unemployedLaborForce = Integer.parseInt(data[44]);
+            double unemployedPercent = Double.parseDouble(data[45]);
 
+            int fips = Integer.parseInt(data[0]);
+            String state = data[1];
+            String county = data[2];
+            int stateIndex = getStateIndex(state, d.getStates());
+            if(stateIndex == -1) {
+                d.getStates().add(new State(state, new ArrayList<>()));
+                stateIndex = d.getStates().size() - 1;
+            }
+
+            int countyIndex = getCountyIndex(county, d.getStates().get(stateIndex).getCounties());
+            if(countyIndex == -1) {
+                d.getStates().get(stateIndex).getCounties().add(new County(county, fips, new Election2016(-1, -1, -1),
+                        new Education2016(-1, -1, -1, -1),
+                        new Employment2016(-1, -1, -1, -1)));
+                countyIndex = d.getStates().get(stateIndex).getCounties().size() - 1;
+            }
+
+            d.getStates().get(stateIndex).getCounties().get(countyIndex).getEmploy2016().setTotalLaborForce(totalLaborForce);
+            d.getStates().get(stateIndex).getCounties().get(countyIndex).getEmploy2016().setEmployedLaborForce(employedLaborForce);
+            d.getStates().get(stateIndex).getCounties().get(countyIndex).getEmploy2016().setUnemployedLaborForce(unemployedLaborForce);
+            d.getStates().get(stateIndex).getCounties().get(countyIndex).getEmploy2016().setUnemployedPercent(unemployedPercent);
+        }
     }
 
     private static String clean(String str) {
