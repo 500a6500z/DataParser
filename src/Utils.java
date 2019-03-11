@@ -1,7 +1,6 @@
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Utils {
@@ -79,43 +78,82 @@ public class Utils {
 
     private static void parseElection(DataManager d, String election) {
         String[] lines = election.split("\n");
+        for(int i = 0; i < lines.length; i++) {
+            lines[i] = clean(lines[i]);
+        }
+
+        for(int i = 0; i < lines.length; i++) {
+            String[] data = lines[i].split(",");
+            int stateIndex = getStateIndex(data[8], d.getStates());
+            if(stateIndex != -1) {
+                int countyIndex = getCountyIndex(data[9], d.getStates().get(stateIndex).getCounties());
+            }
+        }
     }
 
     private static void parseEducation(DataManager d, String education) {
         String[] lines = education.split("\n");
+        for(int i = 0; i < lines.length; i++) {
+            lines[i] = clean(lines[i]);
+        }
+
     }
 
     private static void parseUnemployment(DataManager d, String unemployment) {
         String[] lines = unemployment.split("\n");
+        for(int i = 0; i < lines.length; i++) {
+            lines[i] = clean(lines[i]);
+        }
+
     }
 
-    private static void clean(String str) {
+    private static String clean(String str) {
         ArrayList<Integer> list = new ArrayList<>();
         boolean inQuote = false;
         for(int i = str.length() - 1; i >= 0; i++) {
-            if(str.charAt(i) == '%') {
-                list.add(i);
-            }
-            else if(!inQuote && str.charAt(i) == '"') {
+            if(!inQuote && str.charAt(i) == '"') {
                 inQuote = true;
-                list.add(i);
-            }
-            else if(inQuote && str.charAt(i) == ',') {
                 list.add(i);
             }
             else if(inQuote && str.charAt(i) == '"') {
                 list.add(i);
                 inQuote = false;
             }
+            else if(inQuote && str.charAt(i) == ',') {
+                list.add(i);
+            }
+            else if(str.charAt(i) == ' ' || str.charAt(i) == '%' || str.charAt(i) == '$') {
+                list.add(i);
+            }
         }
 
         for(int i = 0; i < list.size(); i++) {
             str = removeChar(str, list.get(i));
         }
+
+        return str;
     }
 
     private static String removeChar(String str, int i) {
         return str.substring(0, i) + str.substring(i + 1);
+    }
+
+    private static int getStateIndex(String state, ArrayList<State> list) {
+        for(int i = 0; i < list.size(); i++) {
+            if(list.get(i).getName().equals(state)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    private static int getCountyIndex(String county, ArrayList<County> list) {
+        for(int i = 0; i < list.size(); i++) {
+            if(list.get(i).getName().equals(county)) {
+                return i;
+            }
+        }
+        return -1;
     }
 
 }
