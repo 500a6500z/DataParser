@@ -9,7 +9,6 @@ public class Utils {
         StringBuilder output = new StringBuilder();
 
         try (Scanner scanner = new Scanner(new File(filepath))) {
-
             while (scanner.hasNext()) {
                 String line = scanner.nextLine();
                 output.append(line + "\n");
@@ -76,7 +75,6 @@ public class Utils {
         for(int i = startIndex; i < lines.length; i++) {
             lines[i] = clean(lines[i]);
         }
-
         for(int i = startIndex; i < lines.length; i++) {
             String[] data = lines[i].split(",");
             double demVotes = Double.parseDouble(data[1]);
