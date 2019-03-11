@@ -58,12 +58,64 @@ public class Utils {
         return output;
     }
 
-    public static DataManager parseMoreParse(ArrayList<ElectionResult> list) {
-        DataManager output = new DataManager(new ArrayList<>(50));
-        for(ElectionResult e : list) {
+    //TODO:
+    /*
+        finish 3 parse methods, use clean method, and create objects
+     */
 
-        }
+    public static DataManager parseFiles(String electionResultsFile, String educationFile, String unemploymentFile) {
+        DataManager output = new DataManager(new ArrayList<>(51));
+        String election = readFileAsString(electionResultsFile);
+        String education = readFileAsString(educationFile);
+        String unemployment = readFileAsString(unemploymentFile);
+
+        parseElection(output, election);
+        parseEducation(output, education);
+        parseUnemployment(output, unemployment);
+
 
         return output;
     }
+
+    private static void parseElection(DataManager d, String election) {
+        String[] lines = election.split("\n");
+    }
+
+    private static void parseEducation(DataManager d, String education) {
+        String[] lines = education.split("\n");
+    }
+
+    private static void parseUnemployment(DataManager d, String unemployment) {
+        String[] lines = unemployment.split("\n");
+    }
+
+    private static void clean(String str) {
+        ArrayList<Integer> list = new ArrayList<>();
+        boolean inQuote = false;
+        for(int i = str.length() - 1; i >= 0; i++) {
+            if(str.charAt(i) == '%') {
+                list.add(i);
+            }
+            else if(!inQuote && str.charAt(i) == '"') {
+                inQuote = true;
+                list.add(i);
+            }
+            else if(inQuote && str.charAt(i) == ',') {
+                list.add(i);
+            }
+            else if(inQuote && str.charAt(i) == '"') {
+                list.add(i);
+                inQuote = false;
+            }
+        }
+
+        for(int i = 0; i < list.size(); i++) {
+            str = removeChar(str, list.get(i));
+        }
+    }
+
+    private static String removeChar(String str, int i) {
+        return str.substring(0, i) + str.substring(i + 1);
+    }
+
 }
