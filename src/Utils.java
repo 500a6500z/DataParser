@@ -115,7 +115,34 @@ public class Utils {
         for(int i = 0; i < lines.length; i++) {
             lines[i] = clean(lines[i]);
         }
+        for(int i = 0; i < lines.length; i++) {
+            String[] data = lines[i].split(",");
+            double noHighSchool = Double.parseDouble(data[43]);
+            double onlyHighSchool = Double.parseDouble(data[44]);
+            double someCollege = Double.parseDouble(data[45]);
+            double bachelorsOrMore = Double.parseDouble(data[46]);
+            int fips = Integer.parseInt(data[0]);
+            String state = data[1];
+            String county = data[2];
+            int stateIndex = getStateIndex(state, d.getStates());
+            if(stateIndex == -1) {
+                d.getStates().add(new State(state, new ArrayList<>()));
+                stateIndex = d.getStates().size() - 1;
+            }
 
+            int countyIndex = getCountyIndex(county, d.getStates().get(stateIndex).getCounties());
+            if(countyIndex == -1) {
+                d.getStates().get(stateIndex).getCounties().add(new County(county, fips, new Election2016(-1, -1, -1),
+                        new Education2016(-1, -1, -1, -1),
+                        new Employment2016(-1, -1, -1, -1)));
+                countyIndex = d.getStates().get(stateIndex).getCounties().size() - 1;
+            }
+
+            d.getStates().get(stateIndex).getCounties().get(countyIndex).getEduc2016().setNoHighSchool(noHighSchool);
+            d.getStates().get(stateIndex).getCounties().get(countyIndex).getEduc2016().setOnlyHighSchool(onlyHighSchool);
+            d.getStates().get(stateIndex).getCounties().get(countyIndex).getEduc2016().setSomeCollege(someCollege);
+            d.getStates().get(stateIndex).getCounties().get(countyIndex).getEduc2016().setBachelorsOrMore(bachelorsOrMore);
+        }
     }
 
     private static void parseUnemployment(DataManager d, String unemployment) {
