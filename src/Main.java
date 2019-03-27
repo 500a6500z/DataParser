@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.ArrayList;
 
 /***
@@ -6,8 +7,7 @@ import java.util.ArrayList;
  */
 
 public class Main {
-    public static void main(String[] args) {
-        String data = Utils.readFileAsString("data/2016_Presidential_Results.csv");
-        DataManager d = Utils.parseFiles("data/2016_Presidential_Results.csv", "data/Education.csv", "data/Unemployment.csv");
+    public static void main(String[] args) throws IOException {
+        Utils.cleanSATData();
     }
 }

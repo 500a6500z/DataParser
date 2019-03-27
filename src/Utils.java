@@ -1,5 +1,4 @@
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -19,6 +18,29 @@ public class Utils {
         }
 
         return output.toString();
+    }
+
+    public static void cleanSATData() throws IOException {
+        String input = readFileAsString("data/sat18.csv");
+        PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("data/cleanSAT17-18.csv")));
+
+        String[] lines = input.split("\n");
+        StringBuilder output = new StringBuilder();
+
+        for(int i = 0; i < lines.length; i++) {
+            String[] items = lines[i].split(",");
+            boolean ok = true;
+            for(int j = 0; j < items.length; j++) {
+                if(items[j].length() == 0 || items[j].equals("*") || items[j].equals("N/A")) {
+                    ok = false;
+                }
+            }
+
+            if(ok) {
+                output.append(lines[i] + "\n");
+            }
+        }
+        out.print(output.toString());
     }
 
     public static ArrayList<ElectionResult> parse2016PresidentalResults(String data) {
