@@ -41,7 +41,7 @@ Fremont High,Alameda,24,19.67,6,4.92,3,2.46
 LPS Oakland R & D Campus,Alameda,19,36.54,11,21.15,10,19.23
 Street Academy (Alternative),Alameda,3,15.00,1,5.00,1,5.00
 LIFE Academy,Alameda,19,29.23,6,9.23,4,6.15
-"Oakland Military Institute, College Preparatory Ac",Alameda,44,53.01,24,28.92,22,26.51
+"Oakland Military Institute College Preparatory Ac",Alameda,44,53.01,24,28.92,22,26.51
 Aspire Lionel Wilson College Preparatory Academy,Alameda,17,70.83,10,41.67,10,41.67
 Conservatory of Vocal/Instrumental Arts High,Alameda,11,73.33,10,66.67,9,60.00
 Oakland High,Alameda,128,44.44,65,22.57,54,18.75
@@ -49,7 +49,7 @@ Oakland Technical High,Alameda,307,75.06,218,53.30,209,51.10
 Skyline High,Alameda,159,44.66,80,22.47,74,20.79
 Oakland School for the Arts,Alameda,66,88.00,34,45.33,34,45.33
 Madison Park Academy 6-12,Alameda,28,34.15,12,14.63,9,10.98
-"Independent Study, Sojourner Truth",Alameda,9,47.37,2,10.53,2,10.53
+"Independent Study Sojourner Truth",Alameda,9,47.37,2,10.53,2,10.53
 Piedmont High,Alameda,122,98.39,114,91.94,113,91.13
 San Leandro High,Alameda,245,68.44,154,43.02,142,39.66
 KIPP King Collegiate High,Alameda,75,77.32,54,55.67,50,51.55
@@ -286,9 +286,9 @@ La Canada High,Los Angeles,182,97.38,179,95.81,179,93.72
 Agoura High,Los Angeles,257,96.28,221,82.90,221,82.16
 Calabasas High,Los Angeles,219,94.44,175,75.64,177,75.64
 Environmental Charter High,Los Angeles,62,52.99,33,28.21,30,25.64
-"Lennox Mathematics, Science and Technology Academy",Los Angeles,87,65.41,47,35.34,44,33.08
+"Lennox Mathematics Science and Technology Academy",Los Angeles,87,65.41,47,35.34,44,33.08
 Animo Leadership High,Los Angeles,83,56.85,46,31.51,39,26.71
-"Ernest S. McBride, Sr. High",Los Angeles,133,78.24,81,47.65,77,45.29
+"Ernest S. McBride Sr. High",Los Angeles,133,78.24,81,47.65,77,45.29
 Avalon K-12,Los Angeles,21,65.63,14,43.75,13,40.63
 Jordan High,Los Angeles,173,26.49,64,9.80,55,8.42
 Lakewood High,Los Angeles,418,64.41,245,37.75,235,36.21
@@ -366,7 +366,7 @@ Daniel Pearl Journalism & Communications Magnet,Los Angeles,39,68.42,24,42.11,24
 Ambassador-Global Leadership,Los Angeles,35,50.72,18,26.09,16,23.19
 Alliance Cindy and Bill Simon Technology Academy H,Los Angeles,25,24.51,6,5.88,5,4.90
 Alliance Tennenbaum Family Technology High,Los Angeles,22,42.31,8,15.38,8,15.38
-"Math, Science, & Technology Magnet Academy at Roos",Los Angeles,52,63.41,31,37.80,30,36.59
+"Math Science & Technology Magnet Academy at Roos",Los Angeles,52,63.41,31,37.80,30,36.59
 Esteban Torres East LA Performing Arts Magnet,Los Angeles,26,38.81,10,14.93,9,13.43
 Humanitas Academy of Art and Technology at Esteban,Los Angeles,33,51.56,9,14.06,9,14.06
 Social Justice Leadership Academy at Esteban E. To,Los Angeles,16,29.09,5,9.09,3,5.45
@@ -402,7 +402,7 @@ Augustus F. Hawkins High C Responsible Indigenous ,Los Angeles,13,20.00,2,3.08,1
 Linda Esperanza Marquez High A Huntington Park Ins,Los Angeles,39,39.00,7,7.00,6,6.00
 Linda Esperanza Marquez High B LIBRA Academy,Los Angeles,46,44.66,25,24.27,22,21.36
 Linda Esperanza Marquez High C School of Social Ju,Los Angeles,38,55.88,16,23.53,16,23.53
-"Science, Technology, Engineering, Arts and Mathema",Los Angeles,36,37.50,20,20.83,17,17.71
+"Science Technology Engineering Arts and Mathema",Los Angeles,36,37.50,20,20.83,17,17.71
 Visual and Performing Arts at Legacy High School C,Los Angeles,27,55.10,8,16.33,5,10.20
 Academy for Multilingual Arts and Science at Mervy,Los Angeles,14,20.90,3,4.48,3,4.48
 Academies of Education and Empowerment at Carson H,Los Angeles,54,48.21,25,22.32,23,20.54
@@ -426,7 +426,7 @@ Carson Senior High,Los Angeles,102,52.85,48,24.87,43,22.28
 Chatsworth Charter High,Los Angeles,168,76.36,98,44.55,95,43.18
 Valley Alternative Magnet,Los Angeles,28,77.78,16,44.44,16,44.44
 Grover Cleveland Charter High,Los Angeles,273,73.33,196,52.80,193,51.47
-"Crenshaw Science, Technology, Engineering, Math an",Los Angeles,37,30.08,6,4.88,5,4.07
+"Crenshaw Science Math an",Los Angeles,37,30.08,6,4.88,5,4.07
 Susan Miller Dorsey Senior High,Los Angeles,34,25.19,8,5.93,6,4.44
 Eagle Rock High,Los Angeles,254,78.88,159,49.38,155,48.14
 El Camino Real Charter High,Los Angeles,441,89.11,358,72.38,346,69.76
@@ -955,7 +955,7 @@ San Diego Business/Leadership,San Diego,35,60.34,14,24.14,13,22.41
 Kearny Digital Media & Design,San Diego,30,58.82,23,45.10,20,39.22
 Kearny SCT,San Diego,48,75.00,28,43.75,26,40.63
 Kearny College Connections,San Diego,38,76.00,21,42.00,21,42.00
-"Kearny Eng, Innov & Design",San Diego,29,74.36,24,61.54,22,56.41
+"Kearny Eng & Design",San Diego,29,74.36,24,61.54,22,56.41
 Crawford High,San Diego,73,50.34,31,21.38,26,17.93
 San Diego Science and Technology,San Diego,45,54.22,30,36.14,26,31.33
 San Diego Metro Career and Tech,San Diego,19,82.61,7,30.43,7,30.43
@@ -1025,7 +1025,7 @@ Independence High,San Francisco,12,80.00,8,53.33,8,53.33
 Wallenberg (Raoul) Traditional High,San Francisco,91,77.78,84,71.79,78,66.67
 Burton (Phillip and Sala) Academic High,San Francisco,93,62.00,73,48.67,62,41.33
 Balboa High,San Francisco,141,75.00,125,66.49,116,61.70
-"Asawa (Ruth) SF Sch of the Arts, A Public School",San Francisco,117,95.90,94,77.05,94,77.05
+"Asawa (Ruth) SF Sch of the Arts A Public School",San Francisco,117,95.90,94,77.05,94,77.05
 Marshall (Thurgood) High,San Francisco,18,32.73,17,30.91,13,23.64
 Leadership High,San Francisco,19,38.78,7,14.29,3,6.12
 Gateway High,San Francisco,76,73.79,51,49.51,50,48.54
@@ -1050,7 +1050,7 @@ Lathrop High,San Joaquin,96,68.09,51,36.17,49,34.75
 Sierra High,San Joaquin,111,81.02,70,51.09,65,47.45
 East Union High,San Joaquin,116,74.84,78,50.32,71,45.81
 Manteca High,San Joaquin,91,65.94,56,40.58,50,36.23
-"Humphreys College Academy of Business, Law and Edu",San Joaquin,21,65.63,10,31.25,10,31.25
+"Humphreys College Academy of Business Law and Edu",San Joaquin,21,65.63,10,31.25,10,31.25
 Delta Charter,San Joaquin,13,86.67,6,40.00,6,40.00
 California Connections Academy @ Ripon,San Joaquin,16,80.00,11,55.00,11,55.00
 Ripon High,San Joaquin,86,83.65,60,58.65,59,56.73
